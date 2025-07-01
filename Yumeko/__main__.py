@@ -296,3 +296,29 @@ if __name__ == "__main__":
 
     except Exception as e:
         log.exception(e)
+
+@app.on_callback_query(filters.regex("source_code"))
+@error
+async def source_code(_, clb: CallbackQuery):
+    await clb.message.edit(
+        text=(
+            "✨ **Name:** Hinata\n"
+            "👨‍💻 **Developer:** [AYUSH](tg://user?id=6524770736)\n\n"
+            "🤝 **Supporters:**\n"
+            "   • [AADIII](tg://user?id=5630057244)\n\n"
+            "🤖 **Bots Under This Repository:**\n"
+            "   • [Nezuko](https://t.me/NezukoProxBot)\n"
+            "   • [Frieren](https://t.me/FrierenzBot)\n"
+            "   • [Nobara](https://t.me/Nobara_Xprobot)\n"
+            "   • [Arlecchino](https://t.me/ArlecchinoProxBot)\n"
+            "   • [Kafka Honkai](https://t.me/Kafka_Xprobot)\n"
+            "   • [Mikasa](https://t.me/Mikasa_Xprobot)\n\n"           
+            "📂 **Source Code:** [Hinata GitHub Repository](https://github.com/john-wick00/Yumekoo)"
+        ),
+        reply_markup=InlineKeyboardMarkup([
+            [
+                InlineKeyboardButton("Bᴀᴄᴋ", callback_data="st_back")
+            ]
+        ]),
+        disable_web_page_preview=True
+    )
