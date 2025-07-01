@@ -29,10 +29,10 @@ class config:
     DOWNLOAD_LOCATION = "./downloads"
     COMMAND_PREFIXES = ["/" , "!" , "." , "#" , "$" , "%" , "&" , "?"] 
     CMD_STARTERS = "/.!&#%$"
-    STATS_IMG_URL = "https://telegram.me/share/url?url=https://files.catbox.moe/g57sip.jpg"
-    START_IMG_URL = "https://telegram.me/share/url?url=https://files.catbox.moe/g57sip.jpg"
-    HELP_IMG_URL = "https://telegram.me/share/url?url=https://files.catbox.moe/g57sip.jpg"
-    ALIVE_IMG_URL = "https://telegram.me/share/url?url=https://files.catbox.moe/g57sip.jpg"
+    STATS_IMG_URL = "https://files.catbox.moe/g57sip.jpg"
+    START_IMG_URL = "https://files.catbox.moe/g57sip.jpg"
+    HELP_IMG_URL = "https://files.catbox.moe/g57sip.jpg"
+    ALIVE_IMG_URL = "https://files.catbox.moe/g57sip.jpg"
     
     #Database
     MONGODB_URI = "mongodb://localhost:27017" # Use Local Hosted Or Atlas !!
