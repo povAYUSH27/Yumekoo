@@ -5,7 +5,7 @@ class config:
     API_HASH = "0"
     BOT_TOKEN = 7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8
     BOT_NAME = "Hinata"
-    BOT_USERNAME = "@povHinataBot"
+    BOT_USERNAME = "povHinataBot"
     BOT_ID = 0
     WORKERS = 30
     MAX_MESSAGE_CACHE_SIZE = 250
