@@ -3,7 +3,7 @@ class config:
     #Client
     API_ID = 20028561
     API_HASH = "0f3793daaf4d3905e55b0e44d8719cad"
-    BOT_TOKEN = 7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8"
+    BOT_TOKEN = "7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8"
     BOT_NAME = "Hinata"
     BOT_USERNAME = "povHinataBot"
     BOT_ID = 7696106753
