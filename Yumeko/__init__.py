@@ -1,24 +1,32 @@
-from pyrogram import Client 
-from config import config
 import uvloop
-from cachetools import TTLCache
+import time
+import pytz
 import logging
+from datetime import datetime
+from cachetools import TTLCache
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+from pyrogram import Client
 from telethon import TelegramClient
 from telegram.ext import ApplicationBuilder
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-import time 
-from datetime import datetime
-import pytz
 
-start_time = time.time() 
+from config import config  # <-- Apna config import kar
+
+# Install uvloop (faster event loop)
+uvloop.install()
+
+# Time setup
+start_time = time.time()
 ist = pytz.timezone("Asia/Kolkata")
 start_time_str = datetime.now(ist).strftime("%d-%b-%Y %I:%M:%S %p")
 
-
+# Scheduler
 scheduler = AsyncIOScheduler()
 
+# Clear old logs
 open("log.txt", "w").close()
 
+# Logging Setup
 logging.basicConfig(
     level=logging.INFO,
     format="[%(asctime)s - %(levelname)s] - Yumeko - %(message)s",
@@ -29,59 +37,52 @@ logging.basicConfig(
     ],
 )
 
+# Reduce noise logs
+for noisy_logger in ("httpx", "pyrogram", "telethon", "telegram"):
+    logging.getLogger(noisy_logger).setLevel(logging.ERROR)
 
-logging.getLogger("httpx").setLevel(logging.ERROR)
-logging.getLogger("pyrogram").setLevel(logging.ERROR)
-logging.getLogger("telethon").setLevel(logging.ERROR)
-logging.getLogger("telegram").setLevel(logging.ERROR)
+log = logging.getLogger(name)
 
-
-log = logging.getLogger(__name__)
-
-uvloop.install()
-
+# Pyrogram Client
 class App(Client):
-    def __init__(self):
-        super().__init__(
-            name=config.Hinata,
-            api_id=config.20028561,
-            api_hash=config.0f3793daaf4d3905e55b0e44d8719cad,
-            bot_token=config.7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8,
+    def init(self):
+        super().init(
+            name=config.BOT_NAME,
+            api_id=config.API_ID,
+            api_hash=config.API_HASH,
+            bot_token=config.BOT_TOKEN,
             workers=config.WORKERS,
             max_concurrent_transmissions=config.MAX_CONCURRENT_TRANSMISSIONS,
-            max_message_cache_size=config.MAX_MESSAGE_CACHE_SIZE
-)
+        )
 
 app = App()
 
+# Python-Telegram-Bot Client (PTB v20+)
 ptb = ApplicationBuilder().token(config.BOT_TOKEN).build()
 
+# Telethon Client
 telebot = TelegramClient(
-    f"{config.Hinata}_LOL",
-    config.20028561,
-    config.0f3793daaf4d3905e55b0e44d8719cad,
+    f"{config.BOT_NAME}_telethon",
+    config.API_ID,
+    config.API_HASH,
     timeout=30,
-    connection_retries=5
+    connection_retries=5,
 )
 
-
-
-admin_cache = TTLCache(maxsize=1000000, ttl=300)
-admin_cache_ptb = TTLCache(maxsize=100000 , ttl=300)
+# Caches
+admin_cache = TTLCache(maxsize=1_000_000, ttl=300)
+admin_cache_ptb = TTLCache(maxsize=100_000, ttl=300)
 admin_cache_reload = {}
-BACKUP_FILE_JSON = "last_backup.json"  
 
+# Backup file
+BACKUP_FILE_JSON = "last_backup.json"
 
-
-
-
-
-#Handler Groups
+# Handler Groups
 WATCHER_GROUP = 17
 COMMON_CHAT_WATCHER_GROUP = 100
 GLOBAL_ACTION_WATCHER_GROUP = 1
-LOCK_GROUP = 2 #ptb
-ANTI_FLOOD_GROUP = 3 #ptb
+LOCK_GROUP = 2
+ANTI_FLOOD_GROUP = 3
 BLACKLIST_GROUP = 4
 IMPOSTER_GROUP = 5
 FILTERS_GROUP = 6
