@@ -43,10 +43,10 @@ uvloop.install()
 class App(Client):
     def __init__(self):
         super().__init__(
-            name=config.BOT_NAME,
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            bot_token=config.BOT_TOKEN,
+            name=config.Hinata,
+            api_id=config.20028561,
+            api_hash=config.0f3793daaf4d3905e55b0e44d8719cad,
+            bot_token=config.7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8,
             workers=config.WORKERS,
             max_concurrent_transmissions=config.MAX_CONCURRENT_TRANSMISSIONS,
             max_message_cache_size=config.MAX_MESSAGE_CACHE_SIZE
@@ -57,9 +57,9 @@ app = App()
 ptb = ApplicationBuilder().token(config.BOT_TOKEN).build()
 
 telebot = TelegramClient(
-    f"{config.BOT_NAME}_LOL",
-    config.API_ID,
-    config.API_HASH,
+    f"{config.Hinata}_LOL",
+    config.20028561,
+    config.0f3793daaf4d3905e55b0e44d8719cad,
     timeout=30,
     connection_retries=5
 )
