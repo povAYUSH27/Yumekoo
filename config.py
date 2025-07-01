@@ -3,29 +3,29 @@ class config:
     #Client
     API_ID = 0
     API_HASH = "0"
-    BOT_TOKEN = "0:0-0"
-    BOT_NAME = "Your_Bot_Name"
-    BOT_USERNAME = "Your_Bot_Username"
+    BOT_TOKEN = 7696106753:AAEXvSHg_0x79JYDcx8Mf08icGynkz3n7L8
+    BOT_NAME = "Hinata"
+    BOT_USERNAME = "@povHinataBot"
     BOT_ID = 0
     WORKERS = 30
-    MAX_MESSAGE_CACHE_SIZE = 100
+    MAX_MESSAGE_CACHE_SIZE = 250
     MAX_CONCURRENT_TRANSMISSIONS = 10
     
      
     #Git
-    GIT_USERNAME = "Your_Git_Username"
+    GIT_USERNAME = "povAYUSH27"
     GIT_URL_WITH_TOKEN = "https://Your_Git_Token@github.com/Your_Git_Username/Yumeko.git" 
 
 
     #Info
     BOT_VERSION = "x"
-    OWNER_ID = 5630057244
-    OWNER_USERNAME = "senpaiii10"
-    SUPPORT_CHAT = -1002069412308
-    SUPPORT_CHAT_USERNAME = "Domihoes"
-    SUPPORT_CHAT_LINK = "https://t.me/Domihoes"
-    LOG_CHANNEL = -1001625036774
-    ERROR_LOG_CHANNEL = -1001625036774
+    OWNER_ID = 6524770736
+    OWNER_USERNAME = "povAYUSH"
+    SUPPORT_CHAT = -1002611576730
+    SUPPORT_CHAT_USERNAME = "BLINDxAYUSH2"
+    SUPPORT_CHAT_LINK = "https://t.me/BLINDxAYUSH2"
+    LOG_CHANNEL = -1002253145563
+    ERROR_LOG_CHANNEL = -1002253145563
     DOWNLOAD_LOCATION = "./downloads"
     COMMAND_PREFIXES = ["/" , "!" , "." , "#" , "$" , "%" , "&" , "?"] 
     CMD_STARTERS = "/.!&#%$"
@@ -37,7 +37,7 @@ class config:
     
     #Database
     MONGODB_URI = "mongodb://localhost:27017" # Use Local Hosted Or Atlas !!
-    DATABASE_NAME = "Frieren"
+    DATABASE_NAME = "Hinata"
 
     #API
     ARQ_API_KEY = "RLWCED-WZASYO-AWOLTB-ITBWTP-ARQ"
