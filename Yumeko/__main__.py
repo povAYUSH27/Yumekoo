@@ -4,16 +4,16 @@ import asyncio
 import json
 from pyrogram import idle, filters , Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery , Message
-from Yumeko import app, log, telebot, BACKUP_FILE_JSON, ptb, scheduler
+from Hinata import app, log, telebot, BACKUP_FILE_JSON, ptb, scheduler
 from config import config
-from Yumeko.helper.on_start import edit_restart_message, clear_downloads_folder, notify_startup
-from Yumeko.admin.roleassign import ensure_owner_is_hokage
-from Yumeko.helper.state import initialize_services
-from Yumeko.database import setup_indexes, db
-from Yumeko.admin.backup import restore_db
+from Hinata.helper.on_start import edit_restart_message, clear_downloads_folder, notify_startup
+from Hinata.admin.roleassign import ensure_owner_is_hokage
+from Hinata.helper.state import initialize_services
+from Hinata.database import setup_indexes, db
+from Hinata.admin.backup import restore_db
 from asyncio import sleep
-from Yumeko.decorator.save import save 
-from Yumeko.decorator.errors import error 
+from Hinata.decorator.save import save 
+from Hinata.decorator.errors import error 
 
 MODULES = ["modules", "watchers", "admin", "decorator"]
 LOADED_MODULES = {}
@@ -24,7 +24,7 @@ def load_modules_from_folder(folder_name):
     for filename in os.listdir(folder_path):
         if filename.endswith(".py") and filename != "__init__.py":
             module_name = filename[:-3]
-            module = importlib.import_module(f"Yumeko.{folder_name}.{module_name}")
+            module = importlib.import_module(f"Hinata.{folder_name}.{module_name}")
             __module__ = getattr(module, "__module__", None)
             __help__ = getattr(module, "__help__", None)
             if __module__ and __help__:
@@ -83,8 +83,8 @@ def get_main_menu_buttons():
             )
         ],
         [
-            InlineKeyboardButton("🤝 Sᴜᴘᴘᴏʀᴛ", url=config.SUPPORT_CHAT_LINK),
-            InlineKeyboardButton("👤 ᴏᴡɴᴇʀ", user_id=config.OWNER_ID)
+            InlineKeyboardButton("🤝 Sᴜᴘᴘᴏʀᴛ", url=config.https://t.me/BLINDxAYUSH2),
+            InlineKeyboardButton("👤 ᴏᴡɴᴇʀ", user_id=config.6524770736)
         ],
         [
             InlineKeyboardButton("🆘 ʜᴇʟᴘ 🆘", callback_data="yumeko_help")
@@ -224,7 +224,7 @@ async def handle_main_menu_callback(client, query: CallbackQuery):
 @app.on_message(filters.command(["start" , "help"], prefixes=config.COMMAND_PREFIXES) & filters.group)
 async def start_command(client, message: Message):
     button = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Sᴛᴀʀᴛ ɪɴ ᴘᴍ", url="https://t.me/Frierenzbot?start=help")]
+        [InlineKeyboardButton("Sᴛᴀʀᴛ ɪɴ ᴘᴍ", url="https://t.me/povHinatabot?start=help")]
     ])
     await message.reply(
         text=f"**𝖧𝖾𝗅𝗅𝗈, {message.from_user.first_name} <3**\n"
